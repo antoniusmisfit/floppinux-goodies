@@ -16,6 +16,7 @@ do_set()
 {
 case "$1" in
  *) echo "Cannot set property: $1";break;;
+esac
 }
 
 main()
