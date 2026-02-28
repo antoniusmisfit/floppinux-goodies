@@ -19,6 +19,14 @@ case "$1" in
 esac
 }
 
+do_config()
+{
+case "$1" in
+ shutdown) vi /home/shutdown.sh;break;;
+ *) echo "Cannot configure property: $1";break;;
+esac
+}
+
 main()
 {
 do_$1 $2 $3
