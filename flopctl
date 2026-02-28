@@ -1,0 +1,26 @@
+#!/bin/sh
+# Flopctl: A rudimentary "control center" app for Floppinux.
+
+do_get()
+{
+case "$1" in
+ prompt) echo "PS1";break;;
+ uname) cat /proc/version;break;;
+ cpuinfo) cat /proc/$1;break;;
+ env) set;break;;
+ *) echo "Cannot get property: $1";break;;
+ esac
+ }
+
+do_set()
+{
+case "$1" in
+ *) echo "Cannot set property: $1";break;;
+}
+
+main()
+{
+do_$1 $2 $3
+}
+
+main $*
