@@ -23,6 +23,7 @@ do_config()
 {
 case "$1" in
  shutdown) vi /home/shutdown.sh;break;;
+ profile) vi /etc/profile;break;;
  *) echo "Cannot configure property: $1";break;;
 esac
 }
