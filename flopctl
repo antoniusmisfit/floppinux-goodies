@@ -1,6 +1,6 @@
 #!/bin/sh
 # Flopctl: A rudimentary "control center" app for Floppinux.
-
+# Usage: flopctl get|set|config|launch target
 do_get()
 {
 case "$1" in
@@ -25,6 +25,13 @@ case "$1" in
  shutdown) vi /home/shutdown.sh;break;;
  profile) vi /etc/profile;break;;
  *) echo "Cannot configure property: $1";break;;
+esac
+}
+
+do_launch()
+{
+case "$1" in
+ sh|shell) sh -l -m;break;;
 esac
 }
 
