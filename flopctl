@@ -8,6 +8,7 @@ case "$1" in
  uname) cat /proc/version;break;;
  cpuinfo) cat /proc/$1;break;;
  env) set;break;;
+ hostname) cat /etc/hostname;break;;
  *) echo "Cannot get property: $1";break;;
  esac
  }
@@ -15,6 +16,7 @@ case "$1" in
 do_set()
 {
 case "$1" in
+ prompt) export PS1="$2";break;;
  *) echo "Cannot set property: $1";break;;
 esac
 }
@@ -24,6 +26,7 @@ do_config()
 case "$1" in
  shutdown) vi /home/shutdown.sh;break;;
  profile) vi /etc/profile;break;;
+ hostname) vi /etc/hostname;break;;
  *) echo "Cannot configure property: $1";break;;
 esac
 }
